@@ -18,6 +18,7 @@ export default function (app) {
   const service = app.service('like');
 
   service.on('created', OnPostLiked)
+  service.on('removed', OnPostLiked)
 
   service.hooks(hooks);
 };

@@ -1,5 +1,5 @@
-const OnPostLiked = (result, context) => {
-    const { _id: post } = result;
+const OnPostLiked = async(result, context) => {
+    const { post } = result;
     const { app } = context;
 
     const likeCount = await app.service('like').find({ 
