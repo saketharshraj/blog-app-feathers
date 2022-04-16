@@ -3,6 +3,7 @@ import { Comment } from './comment.class';
 
 import createModel from '../../models/comment.model';
 import hooks from './comment.hooks';
+import OnComment from './events/OnComment';
 
 export default function (app) {
   const options = {
@@ -15,6 +16,9 @@ export default function (app) {
 
   // Get our initialized service so that we can register hooks
   const service = app.service('comment');
+
+  service.on('created', OnComment)
+  service.on('removed', OnComment)
 
   service.hooks(hooks);
 };
